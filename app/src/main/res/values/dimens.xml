@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="logo_w">75dp</dimen>
+    <dimen name="logo_h" >75dp</dimen>
+    <dimen name="restaurant_name_margin" >8dp</dimen>
+    <dimen name="relative_layout_margin" >4dp</dimen>
+    <dimen name="recycler_view_padding" >4dp</dimen>
+    <dimen name="tv_loading_error_msg_margin" >8dp</dimen>
+
+
+</resources>

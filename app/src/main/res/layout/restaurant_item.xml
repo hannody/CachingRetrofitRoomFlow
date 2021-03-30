@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/relative_layout_margin">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="@dimen/logo_w"
+        android:layout_height="@dimen/logo_h"
+        tools:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/restaurant_name_margin"
+        android:layout_toEndOf="@+id/ivLogo"
+        android:textColor="@color/black"
+        tools:text=" Name" />
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvName"
+        android:layout_marginStart="@dimen/restaurant_name_margin"
+        android:layout_toEndOf="@+id/ivLogo"
+        tools:text="Type" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvType"
+        android:layout_marginStart="@dimen/restaurant_name_margin"
+        android:layout_toEndOf="@+id/ivLogo"
+        tools:text="Address" />
+</RelativeLayout>
