@@ -4,5 +4,5 @@ data class RestaurantItem(
     val name: String,
     val type: String,
     val logo: String,
-    val address: String,
+    val address: String
 )
