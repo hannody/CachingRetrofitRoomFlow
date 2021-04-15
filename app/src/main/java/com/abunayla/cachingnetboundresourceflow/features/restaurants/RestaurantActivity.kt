@@ -3,11 +3,12 @@ package com.abunayla.cachingnetboundresourceflow.features.restaurants
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.abunayla.cachingnetboundresourceflow.R
 import com.abunayla.cachingnetboundresourceflow.databinding.ActivityRestaurantBinding
+import com.abunayla.cachingnetboundresourceflow.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class RestaurantActivity : AppCompatActivity() {
@@ -25,9 +26,13 @@ class RestaurantActivity : AppCompatActivity() {
                 adapter = restaurantsAdapter
                 layoutManager = LinearLayoutManager(this@RestaurantActivity)
             }
-            viewModel.restaurants.observe(this@RestaurantActivity){ restaurants ->
-                restaurantsAdapter.submitList(restaurants)
 
+
+            viewModel.restaurants.observe(this@RestaurantActivity){ result ->
+                restaurantsAdapter.submitList(result.data)
+                pbLoading.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()
+                tvLoadingErrorMessage.isVisible = result is Resource.Error && result.data.isNullOrEmpty()
+                tvLoadingErrorMessage.text = result.error?.localizedMessage
             }
         }
     }

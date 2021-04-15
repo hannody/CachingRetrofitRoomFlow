@@ -1,6 +1,9 @@
 package com.abunayla.cachingnetboundresourceflow.di
 
+import android.app.Application
+import androidx.room.Room
 import com.abunayla.cachingnetboundresourceflow.api.RestaurantAPI
+import com.abunayla.cachingnetboundresourceflow.data.RestaurantDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,4 +28,10 @@ object AppModule {
     @Singleton
     fun provideRestaurantApi(retrofit: Retrofit): RestaurantAPI =
         retrofit.create(RestaurantAPI::class.java)
+
+    @Provides
+    @Singleton
+    fun provideDatabase(app: Application): RestaurantDatabase =
+        Room.databaseBuilder(app, RestaurantDatabase::class.java, "restaurant_database")
+            .build()
 }
